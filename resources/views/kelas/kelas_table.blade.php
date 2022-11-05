@@ -41,7 +41,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @forelse ($kelas as $kls)
+                @forelse ($kelasses as $kls)
                     <tr>
                         <td>{{ $kls->kode_kelas }}</td>
                         <td>{{ $kls->nama_kelas }}</td>

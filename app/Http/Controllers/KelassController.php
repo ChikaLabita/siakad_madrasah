@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelas;
+use App\Models\Kelass;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use PDF;
 
-class KelasController extends Controller
+class KelassController extends Controller
 {
     public function index()
     {
-        $kelas = Kelas::latest()->paginate(10);
-        return view('kelas.kelas_table', compact('kelas'));
+        $kelasses = Kelass::latest()->paginate(10);
+        return view('kelas.kelas_table', compact('kelasses'));
     }
 
     public function create()
@@ -29,13 +29,13 @@ class KelasController extends Controller
             'wali_kelas' => 'required'
         ]);
 
-        $kelas = Kelas::create([
+        $kelasses = Kelass::create([
             'kode_kelas' => $request->kode_kelas,
             'nama_kelas' => $request->nama_kelas,
             'wali_kelas' => $request->wali_kelas,
         ]);
 
-        if($kelas){
+        if($kelasses){
             //redirect dengan pesan sukses
             return redirect()->route('kelas.index')->with(['success' => 'Data Berhasil Disimpan!']);
         }else{
@@ -46,16 +46,16 @@ class KelasController extends Controller
 
     public function show($id)
     {
-        $kelas = Kelas::find($id); 
+        $kelasses = Kelass::find($id); 
         return view('kelas.detail', compact('kelas'));
     }
 
-    public function edit(Kelas $kelas)
+    public function edit(Kelass $kelasses)
     {
         return view('kelas.edit', compact('kelas'));
     }
 
-    public function update(Request $request, Kelas $kelas)
+    public function update(Request $request, Kelass $kelasses)
     {
         $this->validate($request, [
             'kode_kelas' => 'required',
@@ -63,14 +63,14 @@ class KelasController extends Controller
             'wali_kelas' => 'required',
         ]);
 
-        $kelas = Kelas::findOrFail($kelas->id);
-        $kelas->update([
+        $kelasses = Kelass::findOrFail($kelasses->id);
+        $kelasses->update([
             'kode_kelas' => $request->kode_kelas,
             'nama_kelas' => $request->nama_kelas,
             'wali_kelas' => $request->wali_kelas
         ]);
 
-        if($kelas){
+        if($kelasses){
             //redirect dengan pesan sukses
             return redirect()->route('kelas.index')->with(['success' => 'Data Berhasil Diupdate!']);
         }else{
@@ -81,7 +81,7 @@ class KelasController extends Controller
 
     public function search(Request $request){
         $keyword = $request->keyword;
-        $kelas = DB::table('kelas')
+        $kelasses = DB::table('kelas')
             ->where('kode_kelas', 'like', "%" . $keyword . "%")
             ->orWhere('nama_kelas', 'like', "%" . $keyword . "%")
             ->orWhere('wali_kelas', 'like', "%" . $keyword . "%")->paginate(10);
@@ -90,10 +90,10 @@ class KelasController extends Controller
 
     public function destroy($id)
     {
-        $kelas = Kelas::findOrFail($id);
+        $kelasses = Kelass::findOrFail($id);
   
-        $kelas->delete();
-        if($kelas){
+        $kelasses->delete();
+        if($kelasses){
             //redirect dengan pesan sukses
             return redirect()->route('kelas.index')->with(['success' => 'Data Berhasil Dihapus!']);
         } else {
@@ -103,9 +103,9 @@ class KelasController extends Controller
     }
 
     public function cetakpdf(){
-        $kelas = Kelas::all();
+        $kelasses = Kelass::all();
  
-    	$pdf = PDF::loadview('kelas.cetakpdf',['kelas'=>$kelas]);
+    	$pdf = PDF::loadview('kelas.cetakpdf',['kelas'=>$kelasses]);
     	return $pdf->stream('laporan-kelas.pdf');
     }
 }

@@ -21,18 +21,18 @@
         <div class="row">
             <div class="col">
                 <div class="card border-0 shadow rounded">
-                    <div class="card-header">Edit Ekstrakulikuler</div>
+                    <div class="card-header">Edit Guru</div>
                     <div class="card-body">
-                        <form action="{{ route('siswa.update', $siswa->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('guru.update', $guru->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group col-md-6">
-                                <label class="font-weight-bold">NISN</label>
-                                <input type="text" class="form-control @error('nisn') is-invalid @enderror" name="nisn"
-                                value="{{ old('nisn', $siswa->nisn) }}">
+                                <label class="font-weight-bold">NIP</label>
+                                <input type="text" class="form-control @error('nip') is-invalid @enderror" name="nip"
+                                value="{{ old('nip', $guru->nip) }}">
 
                                 <!-- error message untuk title -->
-                                @error('nisn')
+                                @error('nip')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
@@ -42,7 +42,7 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Nama Lengkap</label>
                                 <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror"
-                                    name="nama_lengkap" value="{{ old('nama_lengkap', $siswa->nama_lengkap) }}">
+                                    name="nama_lengkap" value="{{ old('nama_lengkap', $guru->nama_lengkap) }}">
 
                                 <!-- error message untuk nama_lengkap -->
                                 @error('nama_lengkap')
@@ -55,7 +55,7 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Jenis Kelamin</label>
                                 <input type="text" class="form-control @error('jk') is-invalid @enderror" name="jk"
-                                value="{{ old('jk', $siswa->jk) }}">
+                                value="{{ old('jk', $guru->jk) }}">
 
                                 <!-- error message untuk jk -->
                                 @error('jk')
@@ -68,7 +68,7 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Alamat</label>
                                 <input type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                    name="alamat" value="{{ old('alamat', $siswa->alamat) }}">
+                                    name="alamat" value="{{ old('alamat', $guru->alamat) }}">
 
                                 <!-- error message untuk alamat -->
                                 @error('alamat')
@@ -79,12 +79,12 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label class="font-weight-bold">Kelas</label>
-                                <input type="text" class="form-control @error('kelas') is-invalid @enderror"
-                                    name="kelas" value="{{ old('kelas', $siswa->kelas) }}">
+                                <label class="font-weight-bold">Mapel Yang Diampu</label>
+                                <input type="text" class="form-control @error('mapel_ampu') is-invalid @enderror"
+                                    name="mapel_ampu" value="{{ old('mapel_ampu', $guru->mapel_ampu) }}">
 
-                                <!-- error message untuk kelas -->
-                                @error('kelas')
+                                <!-- error message untuk mapel_ampu -->
+                                @error('mapel_ampu')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>

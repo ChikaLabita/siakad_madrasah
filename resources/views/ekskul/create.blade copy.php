@@ -23,15 +23,15 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-header">Tambah Ekstrakulikuler</div>
                     <div class="card-body">
-                        <form action="{{ route('siswa.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('ekskul.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group col-md-6">
-                                <label class="font-weight-bold">NISN</label>
-                                <input type="text" class="form-control @error('nisn') is-invalid @enderror" name="nisn"
-                                    placeholder="Masukkan NISN">
+                                <label class="font-weight-bold">NIP</label>
+                                <input type="text" class="form-control @error('nip') is-invalid @enderror" name="nip"
+                                    placeholder="Masukkan nip">
 
                                 <!-- error message untuk title -->
-                                @error('nisn')
+                                @error('nip')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
@@ -79,12 +79,12 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label class="font-weight-bold">Kelas</label>
-                                <input type="text" class="form-control @error('kelas') is-invalid @enderror"
-                                    name="kelas" value="{{ old('kelas') }}" placeholder="Masukkan kelas">
+                                <label class="font-weight-bold">Mapel yang diampu</label>
+                                <input type="text" class="form-control @error('mapel_ampu') is-invalid @enderror"
+                                    name="mapel_ampu" value="{{ old('mapel_ampu') }}" placeholder="Masukkan mapel_ampu">
 
-                                <!-- error message untuk kelas -->
-                                @error('kelas')
+                                <!-- error message untuk mapel_ampu -->
+                                @error('mapel_ampu')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>

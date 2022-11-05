@@ -11,17 +11,16 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarAccount" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false"><i class="fa fa-duotone fa-id-card"></i>
-                        Profil Sekolah</a>
+                        Profile</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarAccount">
-                        <li><a class="dropdown-item" href="blog-post.html">Sambutan Kepala Sekolah</a></li>
-                        <li><a class="dropdown-item" href="blog-post.html">Sejarah</a></li>
-                        <li><a class="dropdown-item" href="blog-post.html">Visi Misi</a></li>
-                        <li><a class="dropdown-item" href="blog-post.html">Staff</a></li>
+                        <li><a class="dropdown-item" href="sambutan">Sambutan Kepala Sekolah</a></li>
+                        <li><a class="dropdown-item" href="sejarah">Sejarah & Visi Misi</a></li>
+                        <li><a class="dropdown-item" href="profile">Profile Sekolah</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="contact.html"><i
+                <li class="nav-item"><a class="nav-link" href="contact"><i
                             class="fa fa-duotone fa-address-book"></i> Kontak</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fa fa-duotone fa-image"></i>
+                <li class="nav-item"><a class="nav-link" href="galeri"><i class="fa fa-duotone fa-image"></i>
                         Galeri</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarAccount" role="button" data-bs-toggle="dropdown"

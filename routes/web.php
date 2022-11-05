@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{SiswaController, GuruController, AlumniController, StaffController, KelasController, DashboardController,
+use App\Http\Controllers\{HomepageController, SiswaController, GuruController, AlumniController, StaffController, KelassController, DashboardController,
     LoginController, RegisterController};
 
 /*
@@ -14,13 +14,12 @@ use App\Http\Controllers\{SiswaController, GuruController, AlumniController, Sta
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::resource('dashboard', DashboardController::class);
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [HomepageController::class, 'mainpage']);
+Route::get('/sambutan', [HomepageController::class, 'sambutan']);
+Route::get('/sejarah', [HomepageController::class, 'sejarah']);
+Route::get('/profile', [HomepageController::class, 'profile']);
+Route::get('/galeri', [HomepageController::class, 'galeri']);
+Route::get('/contact', [HomepageController::class, 'contact']);
 //login
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -57,6 +56,26 @@ Route::get('/staff', function () {
     return view('staff.staff_table');
 });
 
+Route::get('/galeri', function () {
+    return view('galeri.galeri');
+});
+
+Route::get('/profile', function () {
+    return view('profile_sekolah.profile_sekolah');
+});
+
+Route::get('/contact', function () {
+    return view('contact.contact');
+});
+
+Route::get('/sambutan', function () {
+    return view('sambutan.sambutan');
+});
+
+Route::get('/sejarah', function () {
+    return view('sejarah.sejarah');
+});
+
 Route::resource('siswa', SiswaController::class);
 Route::get('/search',[SiswaController::class,'search'])->name('search');
 Route::get('cetak', [SiswaController::class, 'cetakpdf'])->name('cetakpdf');
@@ -69,9 +88,9 @@ Route::get('cetak', [AlumniController::class, 'cetakpdf'])->name('cetakpdf');
 Route::resource('staff', StaffController::class);
 Route::get('/search',[StaffController::class,'search'])->name('search');
 Route::get('cetak', [StaffController::class, 'cetakpdf'])->name('cetakpdf');
-Route::resource('kelas', KelasController::class);
-Route::get('/search',[KelasController::class,'search'])->name('search');
-Route::get('cetak', [KelasController::class, 'cetakpdf'])->name('cetakpdf');
+Route::resource('kelas', KelassController::class);
+Route::get('/search',[KelassController::class,'search'])->name('search');
+Route::get('cetak', [KelassController::class, 'cetakpdf'])->name('cetakpdf');
 Route::get('/kelas', function () {
     return view('kelas.kelas_table');
 });

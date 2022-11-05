@@ -46,14 +46,11 @@
                                         @csrf
 
                                         <div class="row mb-3">
-                                            <label for="username"
-                                                class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
-
-                                            <div class="col-md-8">
+                                            <div class="col-md-12">
                                                 <input id="username" type="username"
                                                     class="form-control @error('username') is-invalid @enderror"
                                                     name="username" value="{{ old('username') }}" required
-                                                    autocomplete="username" autofocus>
+                                                    autocomplete="username" autofocus placeholder="Username...">
 
                                                 @error('username')
                                                 <span class="invalid-feedback" role="alert">
@@ -64,13 +61,10 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="password"
-                                                class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                                            <div class="col-md-8">
+                                            <div class="col-md-12">
                                                 <input id="password" type="password"
                                                     class="form-control @error('password') is-invalid @enderror"
-                                                    name="password" required autocomplete="current-password">
+                                                    name="password" required autocomplete="current-password" placeholder="Password...">
 
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -80,7 +74,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!--div class="row mb-3">
                                             <div class="col-md-8 offset-md-4">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="remember"
@@ -91,23 +85,24 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div-->
 
-                                        <div class="row mb-0">
-                                            <div class="col-md-8 offset-md-4">
+                                        <div class="col-md-0 offset-md-0">
                                                 <button type="submit" class="btn btn-primary">
                                                     {{ __('Login') }}
                                                 </button>
-                                                @if (Route::has('password.request'))
+                                                <a class="text text-danger" href="{{ route('register') }}">
+                                                    {{ __('Tidak Punya Akun? Register') }}
+                                                </a>
+                                            </div>
+
+                                        <div class="row mb-0">
+                                                <!--@if (Route::has('password.request'))
                                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                                     {{ __('Lupa Password?') }}
                                                 </a>
-                                                @endif
+                                                @endif-->
                                             </div>
-                                        </div>
-                                        <a class="btn btn-link danger" href="{{ route('register') }}">
-                                                    {{ __('Tidak Punya Akun? Register') }}
-                                                </a>
                                     </form>
                                 </div>
                             </div>
